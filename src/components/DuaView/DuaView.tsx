@@ -1,55 +1,56 @@
 import { useSearchParams } from "next/navigation";
 import Duas from "./Duas";
+import { CategoriesView, CategoryDrower } from "..";
+import Image from "next/image";
 
 type Props = {};
 
-export default async function DuaView({  }: Props) {
-
+export default function DuaView({}: Props) {
   return (
     <div
       id="scrollDua"
       className="w-full delay-1000 transition duration-1000 ease-linear font-[Inter] h-[calc(100vh-40px-80px)] overflow-x-auto scrollbar-thin"
     >
-      {/* <div>
-        <div className="bg-[#ebeef2] dark:bg-[#122337] z-[2] w-full flex-row py-5 items-center justify-between hidden xs:flex sm:flex">
-          <div className="flex flex-row items-center">
-            <img
-              src="/assets/mobile/home/back.svg"
-              className="h-4 cursor-pointer"
-              alt=""
-            />
-            <p className=" text-[16px] text-lg ml-4 text-center dark:text-dark-text">
-              Duas Page
-            </p>
+      {/* ===============This is only for responsive mobile view=============== */}
+      <div className="block lg:hidden relative">
+        <CategoryDrower>
+          <div className="hidden lg:block w-[400px]">
+            <button className="w-full rounded-tr-[10px] rounded-tl-[10px] p-[18px] bg-[#1FA45B] text-white">
+              Categories
+            </button>
+            <div className="bg-white rounded-br-[10px] rounded-bl-[10px]">
+              <div className="">
+                <div className="mx-3 pt-4">
+                  <label className="relative block w-full">
+                    <span className="absolute inset-y-0 left-0 flex items-center pl-4">
+                      <Image
+                        alt="icon"
+                        width={24}
+                        height={24}
+                        src={"/assets/icons/search.svg"}
+                      />
+                    </span>
+                    <input
+                      className="h-12 placeholder:text-mute-grey placeholder:text-sm border-[1px] block bg-white w-full rounded-md pl-12 shadow-sm focus:outline-none focus:border-primary focus:ring-primary focus:ring-1  
+        sm:text-sm"
+                      placeholder="Search Categories"
+                      type="text"
+                      name="search"
+                    />
+                  </label>
+                </div>
+              </div>
+              <div>
+                <div className="mt-4">
+                  {/* <CategoriesView /> */}
+                </div>
+              </div>
+            </div>
           </div>
-          <img
-            src="/assets/tab/home/settings.svg"
-            className="cursor-pointer "
-            alt=""
-          />
-        </div>
-        <div className="flex flex-row justify-between mb-5 px-5 py-4 bg-white rounded-2lg items-center cursor-pointer dark:bg-dark-bg lg-min:hidden">
-          <p className="flex gap-x-2  text-[16px] font-medium leading-[25px] dark:text-dark-text text-mss ">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-              />
-            </svg>
-            Dua's importance
-          </p>
-        </div>
-      </div> */}
+        </CategoryDrower>
+      </div>
+      {/* ===============This is only for responsive mobile view================= */}
       <Duas />
     </div>
   );
 }
-

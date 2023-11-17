@@ -6,8 +6,19 @@ type Props = {};
 
 export default function Search({}: Props) {
   return (
-    <div className="flex justify-between mb-[27px] ">
-      <h3 className="text-[24px] font-[Poppins]">Dua Page</h3>
+    <div className="flex justify-between items-center mb-[27px] ">
+      <div className="flex gap-4 items-center">
+        <div className="block xl:hidden">
+          <Image
+            alt="icon"
+            width={73}
+            height={73}
+            src={"/assets/icons/icon.svg"}
+            className="cursor-pointer"
+          />
+        </div>
+        <h3 className="text-[24px] font-[Poppins]">Dua Page</h3>
+      </div>
       <div className="flex gap-6">
         <div className="relative rounded-md shadow-sm w-[371px]">
           <input

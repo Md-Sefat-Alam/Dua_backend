@@ -6,19 +6,19 @@ type Props = {};
 
 export default function Nav({}: Props) {
   return (
-    <nav className="m-[40px]">
-      <div className="bg-white rounded-[24px] h-[calc(100vh-40px-40px)] flex flex-col items-center justify-between w-[100px] py-[31px]">
-        <div>
+    <nav className="">
+      <div className="xl:bg-white xl:rounded-[24px] xl:h-[calc(100vh-40px-40px)] flex flex-col xl:items-center xl:justify-between xl:w-[100px] xl:py-[31px]">
+        <div className="hidden xl:block">
           <Image
             alt="icon"
             width={73}
             height={73}
             src={"/assets/icons/icon.svg"}
-            className="cursor-pointer" 
+            className="cursor-pointer"
           />
         </div>
         {/* logo */}
-        <div className="flex flex-col gap-[27px]">
+        <div className="flex flex-row justify-evenly xl:flex-col gap-[27px]">
           <MakeNavIcon>
             <Image
               alt="icon"
@@ -83,7 +83,7 @@ export default function Nav({}: Props) {
           </MakeNavIcon>
         </div>
         {/* menu */}
-        <div className="w-[57px] h-[56px] rounded-[10px] bg-[#1FA45B] shadow-[0_4px_20px_0px_rgba(31,164,91,0.22)] flex justify-center items-center">
+        <div className="hidden xl:flex w-[57px] h-[56px] rounded-[10px] bg-[#1FA45B] shadow-[0_4px_20px_0px_rgba(31,164,91,0.22)]  justify-center items-center">
           <Image
             alt="icon"
             width={24}

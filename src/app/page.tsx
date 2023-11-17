@@ -1,10 +1,10 @@
-import { CategoriesView, DuaView } from "@/components";
+import { CategoriesView, CategoryDrower, DuaView } from "@/components";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="flex gap-[33px]">
-      <div className="w-[400px]">
+    <main className="flex flex-col lg:flex-row gap-[33px]">
+      <div className="hidden lg:block w-[400px]">
         <button className="w-full rounded-tr-[10px] rounded-tl-[10px] p-[18px] bg-[#1FA45B] text-white">
           Categories
         </button>
