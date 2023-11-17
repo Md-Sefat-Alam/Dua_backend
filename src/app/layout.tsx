@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className + ` bg-[#F7F8FA]`}>
-        <div className="flex fixed">
+        <div className="flex h-screen overflow-hidden">
           <div className="">
             <Nav />
           </div>
@@ -26,7 +26,7 @@ export default function RootLayout({
             <Search />
             {children}
           </div>
-          <div className="w-[330px] mt-[54px] mr-[40px]">
+          <div className="hidden 2xl:block w-[330px] mt-[54px] mr-[40px]">
             <Settings />
           </div>
         </div>

@@ -9,11 +9,11 @@ export default function Settings({}: Props) {
   const [isOpen, setIsOpen] = useState<isOpenType>("Appearance Settings");
   return (
     <div>
-      <div className="mb-[30px] flex justify-end">
+      <div className="mb-[30px] flex justify-end ">
         <button
           id="dropdownAvatarNameButton"
           data-dropdown-toggle="dropdownAvatarName"
-          className="flex items-center text-sm pe-1 font-medium rounded-full"
+          className="items-center text-sm pe-1 font-medium rounded-full hidden 2xl:flex"
           type="button"
         >
           <span className="sr-only">Open user menu</span>
@@ -90,7 +90,7 @@ export default function Settings({}: Props) {
       </div>
 
       
-      <div className="bg-white rounded-[24px] h-[calc(100vh-40px-40px-30px-45px)] border-[0.5px] border-[#E2E2E2]">
+      <div className="bg-white rounded-[24px] h-[calc(100vh-40px-40px-30px-45px)] ">
         <h3 className="text-[#393939] text-center text-[20px] font-[700] pt-[35px] pb-[10px]">
           Settings
         </h3>
