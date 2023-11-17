@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className + ` bg-[#F7F8FA]`}>
-        <div className="flex">
+        <div className="flex fixed">
           <div className="">
             <Nav />
           </div>

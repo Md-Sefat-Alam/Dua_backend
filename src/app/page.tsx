@@ -36,7 +36,7 @@ export default function Home() {
         </div>
       </div>
       {/* categories */}
-      <div className="flex-1 bg-red-200 h-3">
+      <div className="flex-1">
         <DuaView />
       </div>
       {/* duas view */}

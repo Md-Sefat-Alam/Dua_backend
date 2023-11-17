@@ -5,7 +5,6 @@ type Props = { subcat_id: number; cat_id: number };
 
 export default async function Dua({ subcat_id, cat_id }: Props) {
   const dua: Dua[] = await getDua(cat_id, subcat_id);
-  console.log(dua);
 
   return (
     <div className="mt-2 cursor-pointer">

@@ -39,3 +39,12 @@ export interface Dua {
   refference_en?: string;
   audio?: string;
 }
+
+export interface DuaCategoryWise {
+  id: number;
+  cat_id: number;
+  subcat_id: number;
+  subcat_name_en: string;
+  subcat_name_bn: string;
+  categories: Dua[];
+}
