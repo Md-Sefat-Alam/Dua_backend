@@ -10,8 +10,8 @@ export default async function CategoriesView({}: Props) {
     <div
       className='h-[calc(100vh-40px-40px-64px-60px-100px)] 3xl:h-[68vh] pb-8 mb-4 overflow-y-auto scrollbar-thin'
     >
-      <div className="mt-4">
-        {category?.map((item) => (
+      <div className="mt-4 px-[15px]">
+        {category?.map((item) => ( 
           <CategoryGroup category={item} />
         ))}
       </div>

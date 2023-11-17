@@ -4,13 +4,13 @@ import Image from "next/image";
 export default function Home() {
   return (
     <main className="flex gap-[33px]">
-      <div className="flex-1 max-w-[429px]">
+      <div className="flex-1 max-w-[429px] bg-white rounded-br-[10px] rounded-bl-[10px]">
         <button className="w-full rounded-tr-[10px] rounded-tl-[10px] p-[18px] bg-[#1FA45B] text-white">
           Categories
         </button>
-        <div>
+        <div className="">
           <div className="mx-3 pt-4">
-            <label className="relative block w-full">
+            <label className="relative block w-full"> 
               <span className="absolute inset-y-0 left-0 flex items-center pl-4">
                 <Image
                   alt="icon"

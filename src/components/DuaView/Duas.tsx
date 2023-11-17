@@ -2,13 +2,16 @@
 import { useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { Dua, DuaCategoryWise } from "../Duas/DuasTypes";
+import Audio from "./Audio";
 
 type Props = {};
 
 export default function Duas({}: Props) {
   const searchParams = useSearchParams();
   const cat = searchParams.get("cat");
-  const [dua, setDua] = useState<DuaCategoryWise[]>();
+  const subcat = searchParams.get("subcat");
+  const dua = searchParams.get("dua");
+  const [duas, setDuas] = useState<DuaCategoryWise[]>();
 
   useEffect(() => {
     if (cat) {
@@ -17,23 +20,43 @@ export default function Duas({}: Props) {
         .then((data: DuaCategoryWise[]) => {
           console.log(data);
 
-          setDua(data);
+          setDuas(data);
         });
     }
   }, [cat]);
 
+  useEffect(() => {
+    // Scroll to the element with the updated cat_id
+    if (dua) {
+      const element = document.getElementById(`dua_${dua}`);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    } else if (subcat) {
+      const element = document.getElementById(`sec_${subcat}`);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    } else if (cat) {
+      const element = document.getElementById("scrollDua");
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [cat, subcat, dua, duas]);
+
   return (
     <>
-      {dua ? (
-        dua?.map((item) => {
-          const { cat_id, subcat_name_en } = item;
+      {duas ? (
+        duas?.map((item) => {
+          const { cat_id, subcat_name_en, subcat_id } = item;
           return (
             <>
               <div
-                id={`sec_${cat_id}`}
-                className="flex undefined mb-5 flex-row bg-white rounded-2lg px-5 py-4 justify-start items-center dark:bg-dark-bg"
+                id={`sec_${subcat_id}`}
+                className="flex undefined mb-5 flex-row bg-white px-5 py-4 justify-start items-center rounded-[10px]"
               >
-                <p className="text-[16px] font-medium leading-[25px] dark:text-dark-text text-mss  ">
+                <p className="text-[16px] font-medium leading-[25px] ">
                   <span className="text-[#1FA45B] font-medium leading-[25px] text-mss ">
                     Section:
                   </span>{" "}
@@ -67,97 +90,91 @@ export default function Duas({}: Props) {
                 return (
                   <div
                     id={`dua_${dua_id}`}
-                    className=" bg-white rounded-2lg mb-5 dark:bg-dark-bg"
+                    className=" bg-white mb-5 rounded-[10px]"
                   >
                     <div className="p-6">
-                      <div>
-                        <div className="flex flex-row justify-start items-center ">
-                          <img
-                            src="/assets/duacard.svg"
-                            alt="duacard"
-                            className="mr-3"
-                          />
-                          <p className="text-[#1FA45B] font-medium -dua-title">
-                            {dua_id}. {dua_name_en}
-                          </p>
-                        </div>
-                      </div>
-                      <div className="flex flex-col justify-start items-start">
-                        <div className="w-full">
-                          <p className="text-[18px]  mt-5 text-justify leading-8 font-normal">
-                            <span> {top_en}</span>
-                          </p>
-                          <p
-                            dir="rtl"
-                            className="my-8 text-right leading-loose font-['me_quran'] text-[26px]"
-                            style={{ wordSpacing: 8 }}
-                          >
-                            {" "}
-                            {dua_arabic}
-                          </p>
-                          <p className="text-[18px] my-5 text-justify leading-8 italic">
-                            <span id="transliteration" className="font-medium">
-                              Transliteration:
-                            </span>{" "}
-                            <span> {transliteration_en}</span>
-                          </p>
-                          <p
-                            id="translation"
-                            className="text-[18px]  my-5 text-justify font-normal"
-                          >
-                            <span className="font-medium text-[18px]">
-                              Translation:
-                            </span>{" "}
-                            <span> {translation_en}</span>
-                          </p>
-                        </div>
+                      {dua_name_en ? (
                         <div>
-                          <p className="mt-5 font-normal text-[#1FA45B] text-[18px]">
-                            Reference:
-                          </p>
-                          <div className="mt-1 font-normal text-[18px]">
-                            <span>{refference_en}</span>
+                          <div className="flex flex-row justify-start items-center ">
+                            <img
+                              src="/assets/duacard.svg"
+                              alt="duacard"
+                              className="mr-3"
+                            />
+                            <p className="text-[#1FA45B] font-medium -dua-title">
+                              {dua_id}. {dua_name_en}
+                            </p>
                           </div>
                         </div>
+                      ) : (
+                        <></>
+                      )}
+                      <div className="flex flex-col justify-start items-start">
+                        <div className="w-full">
+                          {top_en ? (
+                            <p className="text-[18px]  mt-5 text-justify leading-8 font-normal">
+                              <span> {top_en}</span>
+                            </p>
+                          ) : (
+                            <></>
+                          )}
+                          {dua_arabic ? (
+                            <p
+                              dir="rtl"
+                              className="my-8 text-right leading-loose font-['me_quran'] text-[26px]"
+                              style={{ wordSpacing: 8 }}
+                            >
+                              {dua_arabic}
+                            </p>
+                          ) : (
+                            <></>
+                          )}
+                          {transliteration_en ? (
+                            <p className="text-[18px] my-5 text-justify leading-8 italic">
+                              <span
+                                id="transliteration"
+                                className="font-medium"
+                              >
+                                Transliteration:
+                              </span>
+                              <span> {transliteration_en}</span>
+                            </p>
+                          ) : (
+                            <></>
+                          )}
+                          {translation_en ? (
+                            <p
+                              id="translation"
+                              className="text-[18px]  my-5 text-justify font-normal"
+                            >
+                              <span className="font-medium text-[18px]">
+                                Translation:
+                              </span>
+                              <span> {translation_en}</span>
+                            </p>
+                          ) : (
+                            <></>
+                          )}
+                        </div>
+                        {refference_en ? (
+                          <div>
+                            <p className="mt-5 font-normal text-[#1FA45B] text-[18px]">
+                              Reference:
+                            </p>
+                            <div className="mt-1 font-normal text-[18px]">
+                              <span>{refference_en}</span>
+                            </div>
+                          </div>
+                        ) : (
+                          <></>
+                        )}
                       </div>
                     </div>
                     {/* end show content */}
                     <div>
                       <div className="flex flex-row items-center justify-between px-6">
-                        <div className="py-4 flex flex-row items-center xs:w-full xs:gap-x-4">
-                          {/* <audio src="https://api.duaruqyah.com/duaaudiofinal/2.mp3" />
-                          <div className="flex flex-row items-center gap-x-3 xs:w-full">
-                            <img
-                              className="cursor-pointer xs:w-8"
-                              src="/assets/others/play.svg"
-                              alt=""
-                            />
-                            <img
-                              className="cursor-pointer xs:w-8"
-                              src="/assets/others/pause.svg"
-                              alt=""
-                            />
-                            <input
-                              className=""
-                              type="range"
-                              min={0}
-                              max={2429}
-                              defaultValue="954.7593"
-                              style={{ backgroundSize: "39.3067% 100%" }}
-                            />
-                          </div>
-                          <div className="w-20 flex justify-center px-3">
-                            <p className="ml-2 text-mute-grey-200 text-sm dark:text-dark-text">
-                              00:14
-                            </p>
-                          </div>
-                          <div className="w-20 flex justify-center">
-                            <img
-                              className="cursor-pointer w-8  false"
-                              alt="suffle"
-                              src="/assets/memorize/suffle.svg"
-                            />
-                          </div> */}
+                        <div className="py-4 flex flex-row items-center">
+                          {audio ? <Audio audio={audio} /> : <></>}
                         </div>
                         <div className="xs:hidden flex items-center flex-row justify-between py-6 gap-x-8 xs:gap-x-6">
                           <div id="copy" className="relative w-6">
@@ -169,7 +186,7 @@ export default function Duas({}: Props) {
                           </div>
                           <div id="bookmark" className="relative w-6">
                             <img
-                              className="cursor-pointer" 
+                              className="cursor-pointer"
                               src="/assets/others/bookmark.svg"
                               alt="bookmark"
                             />

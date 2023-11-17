@@ -5,7 +5,6 @@ type Props = { cat_id: number };
 
 export default async function SubCategory({ cat_id }: Props) {
   const sub_category: SubCategory[] = await getData(cat_id);
-  console.log(sub_category);
   return (
     <div className="ml-12 border-l-2 border-dotted my-2 border-primary">
       <div className="flex border-dotted flex-col justify-start items-start gap-y-2 ml-3 ">

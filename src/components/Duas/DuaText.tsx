@@ -29,7 +29,7 @@ export default function DuaText({ item }: Props) {
       }}
       className={`${
         dua && Number(dua) === dua_id ? "text-[#1FA45B]" : ""
-      } text-2xs my-3 text-left w-[95%] dark:text-gray-300 `}
+      } my-3 text-left  dark:text-gray-300 text-sm`}
     >
       {item?.dua_name_en}
     </p>
