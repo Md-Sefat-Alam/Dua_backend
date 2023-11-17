@@ -105,7 +105,7 @@ export default function Audio({ audio }: Props) {
             setLooping((prev) => !prev);
           }}
           className={`w-20 flex justify-center ${
-            isLooping ? "bg-[#E8F0F5] p-1 rounded-md" : ""
+            isLooping ? "bg-[#E8F0F5] rounded-md" : ""
           }`}
         >
           <img

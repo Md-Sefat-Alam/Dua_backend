@@ -38,7 +38,9 @@ export default function Duas({}: Props) {
         element.scrollIntoView({ behavior: "smooth" });
       }
     } else if (cat) {
-      const element = document.getElementById("scrollDua");
+      const element = document.getElementById(
+        `sec_${duas ? duas[0].subcat_id : ""}`
+      );
       if (element) {
         element.scrollIntoView({ behavior: "smooth" });
       }

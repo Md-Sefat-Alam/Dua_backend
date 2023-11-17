@@ -8,7 +8,7 @@ export default async function DuaView({  }: Props) {
   return (
     <div
       id="scrollDua"
-      className="w-full delay-1000 transition duration-1000 ease-linear font-[Inter] h-[calc(100vh-40px-120px)] overflow-x-auto scrollbar-thin"
+      className="w-full delay-1000 transition duration-1000 ease-linear font-[Inter] h-[calc(100vh-40px-80px)] overflow-x-auto scrollbar-thin"
     >
       {/* <div>
         <div className="bg-[#ebeef2] dark:bg-[#122337] z-[2] w-full flex-row py-5 items-center justify-between hidden xs:flex sm:flex">

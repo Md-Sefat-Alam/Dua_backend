@@ -8,7 +8,7 @@ export default async function CategoriesView({}: Props) {
 //   console.log(category);
   return (
     <div
-      className='h-[calc(100vh-40px-40px-64px-60px-100px)] 3xl:h-[68vh] pb-8 mb-4 overflow-y-auto scrollbar-thin'
+      className='h-[calc(100vh-40px-40px-64px-60px-100px)] pb-4 overflow-y-auto scrollbar-thin'
     >
       <div className="mt-4 px-[15px]">
         {category?.map((item) => ( 
