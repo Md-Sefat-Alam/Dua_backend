@@ -18,7 +18,9 @@ export default async function SubCategory({ cat_id }: Props) {
 }
 
 async function getData(cat_id: number) {
-  const res = await fetch(`http://localhost:3001/api/sub_category/${cat_id}`);
+  const res = await fetch(`http://localhost:3001/api/sub_category/${cat_id}`, {
+    cache: "force-cache",
+  });
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary

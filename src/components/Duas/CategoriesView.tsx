@@ -19,7 +19,7 @@ export default async function CategoriesView({}: Props) {
 }
 
 async function getData() {
-  const res = await fetch("http://localhost:3001/api/category");
+  const res = await fetch("http://localhost:3001/api/category", {'cache': 'force-cache'});
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary

@@ -235,7 +235,9 @@ export default function Duas({}: Props) {
 
 export async function getDua(cat_id: string | null) {
   if (cat_id) {
-    const res = await fetch(`http://localhost:3001/api/dua/${cat_id}`);
+    const res = await fetch(`http://localhost:3001/api/dua/${cat_id}`, {
+      cache: "force-cache",
+    });
 
     if (!res.ok) {
       // This will activate the closest `error.js` Error Boundary

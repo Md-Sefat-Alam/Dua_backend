@@ -25,7 +25,8 @@ export default async function Dua({ subcat_id, cat_id }: Props) {
 
 export async function getDua(cat_id: number, subcat_id: number) {
   const res = await fetch(
-    `http://localhost:3001/api/dua/${cat_id}/${subcat_id}`
+    `http://localhost:3001/api/dua/${cat_id}/${subcat_id}`,
+    { cache: "force-cache" }
   );
 
   if (!res.ok) {
