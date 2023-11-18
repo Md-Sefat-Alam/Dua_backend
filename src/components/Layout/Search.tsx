@@ -17,10 +17,10 @@ export default function Search({}: Props) {
             className="cursor-pointer"
           />
         </div>
-        <h3 className="text-[24px] font-[Poppins]">Dua Page</h3>
+        <h3 className="text-[24px] font-[Inter,sans-serif]">Dua Page</h3>
       </div>
-      <div className="flex gap-6">
-        <div className="relative rounded-md shadow-sm w-[371px]">
+      <div className="gap-6 flex">
+        <div className="hidden md:block relative rounded-md shadow-sm w-[371px]">
           <input
             type="text"
             name="search"

@@ -1,7 +1,6 @@
-import { useSearchParams } from "next/navigation";
-import Duas from "./Duas";
-import { CategoriesView, CategoryDrower } from "..";
 import Image from "next/image";
+import { CategoriesView, CategoryDrower } from "..";
+import Duas from "./Duas";
 
 type Props = {};
 
@@ -14,8 +13,8 @@ export default function DuaView({}: Props) {
       {/* ===============This is only for responsive mobile view=============== */}
       <div className="block lg:hidden relative">
         <CategoryDrower>
-          <div className="hidden lg:block w-[400px]">
-            <button className="w-full rounded-tr-[10px] rounded-tl-[10px] p-[18px] bg-[#1FA45B] text-white">
+          <div className="block lg:hidden w-full">
+            <button className="w-full rounded-tr-[25px]  p-[18px] bg-[#1FA45B] text-white">
               Categories
             </button>
             <div className="bg-white rounded-br-[10px] rounded-bl-[10px]">
@@ -42,7 +41,7 @@ export default function DuaView({}: Props) {
               </div>
               <div>
                 <div className="mt-4">
-                  {/* <CategoriesView /> */}
+                  <CategoriesView />
                 </div>
               </div>
             </div>

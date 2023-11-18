@@ -1,13 +1,12 @@
 "use client";
+import Image from "next/image";
 import {
-  ReadonlyURLSearchParams,
   usePathname,
   useRouter,
-  useSearchParams,
+  useSearchParams
 } from "next/navigation";
-import React, { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 import { Category } from "./DuasTypes";
-import Image from "next/image";
 
 type Props = { category: Category; cat: string | null };
 
@@ -26,6 +25,16 @@ export default function CategoryTop({ category, cat }: Props) {
     },
     [searchParams]
   );
+
+  useEffect(() => {
+    // Scroll to the element with the updated cat_id
+    if (cat) {
+      const element = document.getElementById(`cat_${cat}`);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [cat]);
 
   return (
     <div

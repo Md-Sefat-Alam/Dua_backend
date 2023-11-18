@@ -22,9 +22,11 @@ export default function RootLayout({
           <div className="hidden xl:block ml-[40px] mt-[40px]">
             <Nav />
           </div>
+          {/*============= for responsive=========== */}
           <div className="fixed xl:hidden bottom-0 w-screen bg-white rounded-tl-[45px] rounded-tr-[45px] py-5 shadow-2xl shadow-black">
             <Nav />
           </div>
+          {/*============= for responsive=========== */}
           <div className="flex-1 xl:mt-[44px]">
             <div className="px-[20px] xl:px-[40px] bg-white xl:bg-inherit">
               <Search />

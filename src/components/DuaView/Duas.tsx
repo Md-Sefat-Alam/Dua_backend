@@ -174,8 +174,8 @@ export default function Duas({}: Props) {
                     </div>
                     {/* end show content */}
                     <div>
-                      <div className="flex flex-row items-center justify-between px-6">
-                        <div className="py-4 flex flex-row items-center">
+                      <div className="flex flex-wrap flex-row items-center justify-between px-6">
+                        <div className="py-4 flex flex-row flex-wrap items-center">
                           {audio ? <Audio audio={audio} /> : <></>}
                         </div>
                         <div className="xs:hidden flex items-center flex-row justify-between py-6 gap-x-8 xs:gap-x-6">

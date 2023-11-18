@@ -55,7 +55,7 @@ export default function Nav({}: Props) {
             />
           </MakeNavIcon>
 
-          <MakeNavIcon>
+          <MakeNavIcon className={'hidden xl:flex'}>
             <Image
               alt="icon"
               width={20}
@@ -64,7 +64,7 @@ export default function Nav({}: Props) {
             />
           </MakeNavIcon>
 
-          <MakeNavIcon>
+          <MakeNavIcon className={'hidden xl:flex'}>
             <Image
               alt="icon"
               width={20}
