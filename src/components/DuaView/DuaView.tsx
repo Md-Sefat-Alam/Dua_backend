@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { CategoriesView, CategoryDrower } from "..";
 import Duas from "./Duas";
+import CategorySearchInput from "./CategorySearchInput";
 
 type Props = {};
 
@@ -18,27 +19,7 @@ export default function DuaView({}: Props) {
               Categories
             </button>
             <div className="bg-white rounded-br-[10px] rounded-bl-[10px]">
-              <div className="">
-                <div className="mx-3 pt-4">
-                  <label className="relative block w-full">
-                    <span className="absolute inset-y-0 left-0 flex items-center pl-4">
-                      <Image
-                        alt="icon"
-                        width={24}
-                        height={24}
-                        src={"/assets/icons/search.svg"}
-                      />
-                    </span>
-                    <input
-                      className="h-12 placeholder:text-mute-grey placeholder:text-sm border-[1px] block bg-white w-full rounded-md pl-12 shadow-sm focus:outline-none focus:border-primary focus:ring-primary focus:ring-1  
-        sm:text-sm"
-                      placeholder="Search Categories"
-                      type="text"
-                      name="search"
-                    />
-                  </label>
-                </div>
-              </div>
+              <CategorySearchInput />
               <div>
                 <div className="mt-4">
                   <CategoriesView />
