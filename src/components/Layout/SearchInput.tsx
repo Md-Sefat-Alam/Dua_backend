@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect } from "react";
 
 type Props = {};
 
@@ -10,6 +10,7 @@ export default function SearchInput({}: Props) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const search = searchParams.get("search");
+  const cat = searchParams.get("cat");
   const createQueryString = useCallback(
     (name: string, value: string) => {
       const params = new URLSearchParams(searchParams);
@@ -21,6 +22,14 @@ export default function SearchInput({}: Props) {
     },
     [searchParams]
   );
+
+  useEffect(() => {
+    if (cat) {
+    } else {
+      router.push(pathname + "?" + createQueryString("cat", "1"));
+    }
+  }, []);
+
   return (
     <div className="hidden md:block relative rounded-md shadow-sm w-[371px]">
       <input
@@ -36,7 +45,7 @@ export default function SearchInput({}: Props) {
             pathname + "?" + createQueryString("search", e.target.value)
           );
         }}
-        value={search||''}
+        value={search || ""}
       />
       <div className="absolute inset-y-0 right-0 flex items-center justify-center ">
         <button
